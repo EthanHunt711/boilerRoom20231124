@@ -38,3 +38,31 @@ recipes[0].ingredients.forEach(element => {
 
 }
 
+
+
+
+async function getReceipeInfo(){
+    let responseInfo = await fetch('./data/receipt.json')
+
+    if(responseInfo.ok){
+        const response = await responseInfo.json()
+        // console.log(response)
+        // link to render function
+
+
+
+
+
+    } else {
+        console.log(responseInfo.status)
+    }
+}
+
+const userSelection = document.getElementById('recipeOptions')
+
+userSelection.addEventListener('click', function(event){
+    console.log(event.target)
+})
+
+
+getReceipeInfo();
