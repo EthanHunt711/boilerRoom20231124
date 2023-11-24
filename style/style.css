@@ -1,0 +1,32 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.headerContainer{
+    display: flex;
+    width: 100%;
+    height: 10vh;
+    justify-content: center;
+    align-items: center;
+    background-color:#191970;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
+.optionsContainer{
+    display: grid;
+    height: 5vh;
+    grid: auto-flow dense / 1fr 1fr 1fr;
+    margin: 1rem;
+    gap: 1rem;
+}
+
+.optionsContainer button{
+    background: #ADADF0;
+    color: white;
+    font-size: 1.5rem;
+    border: none;
+    padding: .5rem;
+}
