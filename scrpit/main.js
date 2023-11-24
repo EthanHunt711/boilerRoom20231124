@@ -46,8 +46,7 @@ async function getReceipeInfo(){
 
     if(responseInfo.ok){
         const response = await responseInfo.json()
-        // console.log(response)
-        // link to render function
+        return response
 
 
 
@@ -61,8 +60,24 @@ async function getReceipeInfo(){
 const userSelection = document.getElementById('recipeOptions')
 
 userSelection.addEventListener('click', function(event){
-    console.log(event.target)
+    let data = getReceipeInfo();
+    data.then((result) => {recipeSelector(result,event.target)}) 
+    
+
+    
+
 })
 
+function recipeSelector(infoBlock,userSelected){
+    console.log(infoBlock)
+    console.log(userSelected)
 
-getReceipeInfo();
+}
+
+function renderInfo(recipe){
+    const recipeContainer = document.getElementById("recipe-container")
+
+
+
+
+}
