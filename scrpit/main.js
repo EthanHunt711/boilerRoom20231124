@@ -20,3 +20,21 @@ const recipes = [
 }
 // Lägg till fler receptobjekt här
 ];
+
+const updatePortion = document.getElementById("update-portions")
+
+updatePortion.addEventListener("click",function(){
+    let portionAmount= document.getElementById("portion-count").value;
+    calculateMeasurement(portionAmount);
+    
+})
+
+
+function calculateMeasurement(portions){
+
+recipes[0].ingredients.forEach(element => {
+    console.log(element.baseAmount * portions)
+});
+
+}
+
