@@ -1,40 +1,22 @@
-
-const recipes = [
-    {
-    recipeName: "Chokladkaka",
-    portions: 1,
-    ingredients: [
-        { name: "Mjöl", baseAmount: 1, unit: "kopp" },
-        { name: "Socker", baseAmount: 0.5, unit: "kopp" },
-        { name: "Kakao", baseAmount: 2, unit: "msk" }
-    ],
-    instructions: "Blanda alla ingredienser och grädda i 175 grader i 20 minuter."
-},
-{
-    recipeName: "Vaniljkakor",
-    portions: 1,
-    ingredients: [
-        // Ingrediensdata för Vaniljkakor...
-    ],
-    instructions: "..."
-}
-// Lägg till fler receptobjekt här
-];
+let portionAmount= document.getElementById("portion-count").value;
 
 const updatePortion = document.getElementById("update-portions")
 
 updatePortion.addEventListener("click",function(){
-    let portionAmount= document.getElementById("portion-count").value;
+    portionAmount= document.getElementById("portion-count").value;
     calculateMeasurement(portionAmount);
     
 })
 
 
 function calculateMeasurement(portions){
+// const getUl = document.querySelector("ul")
 
-recipes[0].ingredients.forEach(element => {
-    console.log(element.baseAmount * portions)
-});
+// recipes[0].ingredients.forEach(element => {
+//     console.log(element.baseAmount * portions)
+// });
+
+return portions
 
 }
 
@@ -46,13 +28,11 @@ async function getReceipeInfo(){
 
     if(responseInfo.ok){
         const response = await responseInfo.json()
-        // console.log(response)
-        // link to render function
+        
 
 
-
-
-
+        
+        return response
     } else {
         console.log(responseInfo.status)
     }
@@ -61,8 +41,67 @@ async function getReceipeInfo(){
 const userSelection = document.getElementById('recipeOptions')
 
 userSelection.addEventListener('click', function(event){
-    console.log(event.target)
+    let data = getReceipeInfo();
+    data.then((result) => {recipeSelector(result,event.target)}) 
+    
+
+    
+
 })
 
+function recipeSelector(infoBlock,userSelected){
+    
+    infoBlock.recipes.forEach(function(recipe){
+        if(userSelected.id == recipe.recipeName){
+             renderInfo(recipe)
+        }
+    })
+}
 
-getReceipeInfo();
+function renderInfo(recipe){
+    const recipeContainer = document.getElementById("recipe-container")
+    const ingredientsContainer = document.createElement("div")
+    const ingredientsList = document.createElement("ul")
+
+    recipeContainer.innerHTML = ""
+
+    recipe.ingredients.forEach(function(ingredient){
+        const newLi = document.createElement("li")
+        newLi.textContent = `${ingredient.name}: ${ingredient.baseAmount*portionAmount} ${ingredient.unit}`
+        ingredientsList.appendChild(newLi)
+    })
+
+
+    ingredientsContainer.appendChild(ingredientsList)
+    recipeContainer.appendChild(ingredientsContainer)
+
+    const instructionContainer = document.createElement("div")
+    const instruction = document.createElement("p")
+    const instructionText = document.createTextNode(recipe.instructions) 
+
+    instruction.appendChild(instructionText)
+
+
+    recipeContainer.appendChild(instructionContainer)
+    ingredientsContainer.appendChild(instructionText)
+
+}
+
+function createBtns(){
+    let btnData = getReceipeInfo()
+    btnData.then((response)=>{
+        response.recipes.forEach(function(recipe){
+            const buttonRecipe = document.createElement('button')
+            buttonRecipe.className = 'recipeButton'
+            buttonRecipe.id = `${recipe.recipeName}`
+            buttonRecipe.textContent = recipe.recipeName
+    
+    
+            const buttons = document.getElementById('recipeOptions')
+            buttons.appendChild(buttonRecipe)
+
+    })
+    
+    })
+}
+createBtns()
