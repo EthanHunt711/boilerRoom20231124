@@ -25,20 +25,11 @@ async function getReceipeInfo(){
 
     if(responseInfo.ok){
         const response = await responseInfo.json()
+        
+
+
+        
         return response
-
-
-        response.recipes.forEach(function(recipe){
-            const buttonRecipe = document.createElement('button')
-            buttonRecipe.className = 'recipeButton'
-            buttonRecipe.id = `${recipe.recipeName}-btn`
-            buttonRecipe.textContent = recipe.recipeName
-
-
-            const buttons = document.getElementById('recipeOptions')
-            buttons.appendChild(buttonRecipe)
-        })
-
     } else {
         console.log(responseInfo.status)
     }
@@ -68,3 +59,22 @@ function renderInfo(recipe){
 
 
 }
+
+function createBtns(){
+    let btnData = getReceipeInfo()
+    btnData.then((response)=>{
+        response.recipes.forEach(function(recipe){
+            const buttonRecipe = document.createElement('button')
+            buttonRecipe.className = 'recipeButton'
+            buttonRecipe.id = `${recipe.recipeName}-btn`
+            buttonRecipe.textContent = recipe.recipeName
+    
+    
+            const buttons = document.getElementById('recipeOptions')
+            buttons.appendChild(buttonRecipe)
+
+    })
+    
+    })
+}
+createBtns()
