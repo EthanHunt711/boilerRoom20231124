@@ -27,11 +27,15 @@ body{
 }
 
 .optionsContainer button{
-    background: #ADADF0;
+    background: #7777f6;
     color: white;
     font-size: 1.5rem;
     border: none;
     padding: .5rem;
+}
+
+.optionsContainer button:hover{
+    background-color: #3a3af3;
 }
 
 .portionsContainer{
