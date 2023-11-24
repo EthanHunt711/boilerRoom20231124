@@ -47,16 +47,40 @@ userSelection.addEventListener('click', function(event){
 })
 
 function recipeSelector(infoBlock,userSelected){
-    console.log(infoBlock)
-    console.log(userSelected)
-
+    
+    infoBlock.recipes.forEach(function(recipe){
+        if(userSelected.id == recipe.recipeName){
+             renderInfo(recipe)
+        }
+    })
 }
 
 function renderInfo(recipe){
     const recipeContainer = document.getElementById("recipe-container")
+    const ingredientsContainer = document.createElement("div")
+    const ingredientsList = document.createElement("ul")
+
+    recipeContainer.innerHTML = ""
+
+    recipe.ingredients.forEach(function(ingredient){
+        const newLi = document.createElement("li")
+        newLi.textContent = `${ingredient.name}: ${ingredient.baseAmount} ${ingredient.unit}`
+        ingredientsList.appendChild(newLi)
+    })
 
 
+    ingredientsContainer.appendChild(ingredientsList)
+    recipeContainer.appendChild(ingredientsContainer)
 
+    const instructionContainer = document.createElement("div")
+    const instruction = document.createElement("p")
+    const instructionText = document.createTextNode(recipe.instructions) 
+
+    instruction.appendChild(instructionText)
+
+
+    recipeContainer.appendChild(instructionContainer)
+    ingredientsContainer.appendChild(instructionText)
 
 }
 
@@ -66,7 +90,7 @@ function createBtns(){
         response.recipes.forEach(function(recipe){
             const buttonRecipe = document.createElement('button')
             buttonRecipe.className = 'recipeButton'
-            buttonRecipe.id = `${recipe.recipeName}-btn`
+            buttonRecipe.id = `${recipe.recipeName}`
             buttonRecipe.textContent = recipe.recipeName
     
     
