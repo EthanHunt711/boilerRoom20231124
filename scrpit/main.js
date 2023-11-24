@@ -1,19 +1,22 @@
-
+let portionAmount= document.getElementById("portion-count").value;
 
 const updatePortion = document.getElementById("update-portions")
 
 updatePortion.addEventListener("click",function(){
-    let portionAmount= document.getElementById("portion-count").value;
+    portionAmount= document.getElementById("portion-count").value;
     calculateMeasurement(portionAmount);
     
 })
 
 
 function calculateMeasurement(portions){
+// const getUl = document.querySelector("ul")
 
-recipes[0].ingredients.forEach(element => {
-    console.log(element.baseAmount * portions)
-});
+// recipes[0].ingredients.forEach(element => {
+//     console.log(element.baseAmount * portions)
+// });
+
+return portions
 
 }
 
@@ -64,7 +67,7 @@ function renderInfo(recipe){
 
     recipe.ingredients.forEach(function(ingredient){
         const newLi = document.createElement("li")
-        newLi.textContent = `${ingredient.name}: ${ingredient.baseAmount} ${ingredient.unit}`
+        newLi.textContent = `${ingredient.name}: ${ingredient.baseAmount*portionAmount} ${ingredient.unit}`
         ingredientsList.appendChild(newLi)
     })
 
