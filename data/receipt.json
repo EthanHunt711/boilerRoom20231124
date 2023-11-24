@@ -1,0 +1,56 @@
+{
+   "recipes": [
+        {
+        "recipeName": "Chokladkaka",
+        "portions": 1,
+        "ingredients": [
+                { "name": "Mjöl", "baseAmount": 1, "unit": "dl" },
+                { "name": "Socker", "baseAmount": 2, "unit": "dl" },
+                { "name": "Kakao", "baseAmount": 2, "unit": "msk" }
+            ],
+        "instructions": "Blanda alla ingredienser och grädda i 175 grader i 20 minuter."
+        },
+    
+        {
+        "recipeName": "Vaniljkakor",
+        "portions": 1,
+        "ingredients": [
+                { "name": "Ägg", "baseAmount": 3, "unit": "st" },
+                { "name": "Socker", "baseAmount": 3, "unit": "dl" },
+                { "name": "Bakpulver", "baseAmount": 2, "unit": "msk" },
+                { "name": "Smör", "baseAmount": 150, "unit": "g" },
+                { "name": "Mjölk", "baseAmount": 1, "unit": "dl" }
+            ],
+        "instructions": "Vispa ägg och socker pösigt. Vänd ner de torra ingredienserna och sist det kokande vattnet..."
+       },
+
+       {
+        "recipeName": "Lime Blåbarspaj",
+        "portions": 1,
+        "ingredients": [
+                { "name": "Havrekex", "baseAmount": 200, "unit": "g" },
+                { "name": "Socker", "baseAmount": 3, "unit": "dl" },
+                { "name": "Ägg", "baseAmount": 2, "unit": "st" },
+                { "name": "Blåbärspure", "baseAmount": 100, "unit": "g" },
+                { "name": "Limefrukt", "baseAmount": 2, "unit": "st" }
+            ],
+        "instructions": "Sätt ugnen på 180 grader. Smält smöret och låt svalna något. Mixa kexen och blanda sen med det smälta smöret. Tryck ut smulorna i en pajform med löstagbar kant, ca 22-24 cm i diameter..."
+       },
+
+       {
+        "recipeName": "Brownies med inbakade kokostoppar",
+        "portions": 1,
+        "ingredients": [
+                { "name": "Ägg", "baseAmount": 3, "unit": "st" },
+                { "name": "Socker", "baseAmount": 0.5, "unit": "dl" },
+                { "name": "Kokosflingor", "baseAmount": 3, "unit": "dl" },
+                { "name": "Smör", "baseAmount": 200, "unit": "g" },
+                { "name": "Mjöl", "baseAmount": 180, "unit": "g" },
+                { "name": "Mörk Choklad", "baseAmount": 100, "unit": "g" }
+            ],
+        "instructions": " Smält smöret och smält sedan chokladen där i.  Rör samman ägg, strösocker och farinsocker tills det är blandat. Rör ner smör och choklad..."
+       }
+    
+]
+
+}
