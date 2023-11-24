@@ -1,10 +1,15 @@
 let portionAmount= document.getElementById("portion-count").value;
-
+let portion = 1
+let recipeSelected = ""
 const updatePortion = document.getElementById("update-portions")
 
 updatePortion.addEventListener("click",function(){
     portionAmount= document.getElementById("portion-count").value;
-    calculateMeasurement(portionAmount);
+    //calculateMeasurement(portionAmount);
+
+
+    portion=portionAmount
+    renderInfo(recipeSelected)
     
 })
 
@@ -53,6 +58,7 @@ function recipeSelector(infoBlock,userSelected){
     
     infoBlock.recipes.forEach(function(recipe){
         if(userSelected.id == recipe.recipeName){
+            recipeSelected = recipe
              renderInfo(recipe)
         }
     })
@@ -67,7 +73,7 @@ function renderInfo(recipe){
 
     recipe.ingredients.forEach(function(ingredient){
         const newLi = document.createElement("li")
-        newLi.textContent = `${ingredient.name}: ${ingredient.baseAmount*portionAmount} ${ingredient.unit}`
+        newLi.textContent = `${ingredient.name}: ${ingredient.baseAmount*portion} ${ingredient.unit}`
         ingredientsList.appendChild(newLi)
     })
 
